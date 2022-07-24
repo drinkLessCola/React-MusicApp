@@ -1,0 +1,340 @@
+:root {
+  font-size: 10px;
+
+  --bg-color: #fefefe;
+  --nav-color: #fff;
+  --hover-color: #f0f1f2;
+  --text-color: #555;
+  --title-color:#aaa;
+  --table-text-color:#888;
+  --table-stripe-color:#f9f9f9;
+  --active-color:seashell;
+  --active-color2:rgb(255, 187, 29);
+  --active-text-color:orange;
+  --btn-color: rgb(255, 202, 89);
+  --btn-light-color:rgb(255, 211, 116);
+  --btn-dark-color:gold;
+  --btn-text-color:#333;
+  --h-color:black;
+  --icon-color:#2c2c2c;
+  --like-icon-color:#ec4141;
+  --input-color:#eee;
+  --player-icon-color:rgb(123, 94, 67);
+  --effect-shadow-color:rgba(255, 193, 111, 0.5);
+  --box-shadow-color:#dfdfdf;
+  --progress-color:#eee;
+  --controller-color:#fff;
+  --lyric-color:#666;
+
+  --sound-bar-height: 40px;
+  --progress-bar-width: 0px;
+  --buffer-bar-width:0px;
+  --video-progress-bar-width: 100px;
+  --login-width: 320px;
+  --login-height: 450px;
+  --card-width:150px;
+  --box-shadow-img:'';
+}
+
+/* @media (min-width:576px) {
+  
+}
+@media (min-width:1200px){
+  
+} */
+body {
+  /* font-family: PingFangSC-Light, sans-serif; */
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(#ffafad, #ffc3a0);
+  font-family: 'PingFang SC';
+}
+
+#root {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+body[data-theme="dark"] {
+  --bg-color: #292b30;
+  --nav-color: #272930;
+  --hover-color: #1c1f26;
+  --text-color:#ddd;
+  --title-color:#bbb;
+  --active-color:		rgb(91, 46, 53);
+  --active-text-color:rgb(255, 128, 134);
+  --active-color2:#f74a53;
+  --btn-color: 	#fe556a;
+  --btn-light-color:#f86767;
+  --table-text-color:#aaa;
+  --table-stripe-color:#292b30;
+  --btn-text-color:#ccc;
+  --h-color:#efefef;
+  --icon-color:#d1d1d1;
+  --input-color:#333;
+  --player-icon-color:rgb(213, 115, 129);
+  --effect-shadow-color:rgba(202, 76, 99, 0.5);
+  --progress-color:#555;
+  --box-shadow-color:#111;
+  --controller-color:#333;
+  --btn-dark-color:#e63f53;
+  --lyric-color:#aaa;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+table {
+  border-spacing: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+th {
+  font-weight: normal;
+}
+
+h1,h2,p{
+  color:var(--h-color);
+}
+
+button {
+  border: none;
+  cursor:pointer;
+}
+
+a {
+  text-decoration: none;
+  color:var(--btn-text-color);
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  width: 10.5rem;
+  outline: none;
+  margin: 0 1rem;
+  color:var(--text-color);
+}
+
+/* 图片压缩 */
+/* img {
+	image-rendering:-moz-crisp-edges;
+	image-rendering:-o-crisp-edges;
+	image-rendering:-webkit-optimize-contrast;
+	image-rendering: crisp-edges;
+	-ms-interpolation-mode:nearest-neighbor;
+} */
+.icon {
+  width: 100%;
+  height: 100%;
+}
+.icon path{
+  fill: var(--icon-color);
+}
+.like path{
+  fill:var(--like-icon-color);
+}
+.App {
+  position:relative;
+  max-width: 1250px;
+  min-width: 900px;
+  width: 96vw;
+  height: 90%;
+  min-height: 500px;
+  background-color: var(--bg-color);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* 禁止多次点击选中文本 */
+  user-select: none;
+  overflow: hidden;
+}
+
+.Header {
+  width: 100%;
+  height: 5rem;
+  background-color: var(--nav-color);
+  border-radius: 1rem 1rem 0 0;
+  z-index: 50;
+  flex-shrink: 0;
+}
+
+/* 上下固定，中间滚动布局 */
+.main {
+  position: relative;
+  flex: 1 1;
+  height: 100%;
+  width: 100%;
+  background-color: var(--bg-color);
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+}
+
+
+/* Main */
+.Main {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* table */
+table .icon {
+  width: 1.6rem;
+  fill: #999;
+}
+
+tHead tr {
+  font-size: 1.3rem;
+  text-align: left;
+  color: var(--table-text-color);
+}
+
+tr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-collapse: collapse;
+  font-size: 1.3rem;
+  height: 3.5rem;
+  color: var(--table-text-color);
+}
+
+table tBody tr:hover {
+  background-color: var(--hover-color);
+}
+
+td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* .SongListPageSongs tr td:nth-child(1){
+  设置文字水平居中
+  text-align:center;
+  增加第一列的宽度
+  padding:0 1rem;
+  color:#bbb;
+} */
+
+/* 这样复用性会好一些 */
+/* id */
+.list-idx {
+  flex: 0 1 40px;
+  text-align: center;
+  padding: 0 1rem;
+  color: #bbb;
+}
+
+.list-func {
+  flex: 0 1 60px;
+}
+
+.list-name {
+  flex: 0 1 400px;
+  color: var(--text-color);
+}
+
+.list-time {
+  flex: 0 1 50px;
+  color: #999;
+  text-align: center;
+}
+
+.list-artists {
+  flex: 0 1 200px;
+}
+
+.list-album {
+  flex: 0 1 250px;
+}
+
+/* 奇数浅灰背景 */
+tBody tr:nth-child(odd) {
+  background-color: var(--table-stripe-color);
+}
+
+
+
+
+/* SongListPageFunc */
+.SongListPageFunc {
+  margin: 1.8rem 0;
+  display: flex;
+}
+
+.SongListPageFunc>button {
+  height: 3rem;
+  outline: 1px solid #c8c8c8;
+  background-color: var(--bg-color);
+  color: var(--btn-text-color);
+  font-size: 1.4rem;
+  padding: .6rem 1.5rem;
+  margin: 0 .5rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.SongListPageFunc>button .icon {
+  width: 1.5rem;
+  margin-right: .5rem;
+}
+
+.SongListPageFunc>button path {
+  fill: #fff;
+}
+
+.SongListPageFunc>button:nth-child(1) {
+  background-color: var(--btn-color);
+  outline: none;
+  color: #fff;
+  border-radius: 2rem 0 0 2rem;
+  margin-right: 0;
+}
+
+.SongListPageFunc>button:nth-child(2) {
+  background-color: var(--btn-color);
+  outline: none;
+  color: #fff;
+  left: 100%;
+  height: 3rem;
+  top: 0;
+  padding: .5rem 1rem;
+  font-size: 1.5rem;
+  margin-left: 0;
+  /* border-left: 1px solid #ed5353; */
+  border-left: 1px solid var(--btn-dark-color);
+  border-radius: 0 2rem 2rem 0;
+}
+
+.BigHeart {
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: .9;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  /* Chrome Safari */
+  scrollbar-width: none;
+  /* Firefox */
+}
